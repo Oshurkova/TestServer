@@ -25,6 +25,7 @@ def form_authorization():
         except:
             return render_template('auth_bad.html')
 
+        
         db_lp.close()
 
         error = random.choice(range(2))
@@ -32,6 +33,7 @@ def form_authorization():
             abort(400, 'Record not found') 
         return redirect(url_for('download_file', filename=Login))
     
+
     return render_template('authorization.html')
 
 @app.route('/registration', methods=['GET', 'POST'])
@@ -44,6 +46,7 @@ def form_registration():
         db_lp = sqlite3.connect('login_password.db')
         cursor_db = db_lp.cursor()
         sql_insert = '''INSERT INTO passwords VALUES('{}','{}');'''.format(Login, Password)
+
 
         cursor_db.execute(sql_insert)
 
@@ -78,6 +81,7 @@ def form_create_case():
         phone = request.form.get('phone')
         agreement = request.form.get('agreement')
 
+        # Формирование JSON-объекта
         form_data = {
             'credit_program': credit_program,
             'loan_amount': loan_amount,
@@ -125,7 +129,38 @@ def create_loan_case():
         }
         return jsonify(error_response)
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    try:
+        response_data = {
+                'status': 'success',
+                'message': 'Вход успешно совершен'
+            }
+        return jsonify(response_data)
+    except Exception as e:
+        error_response = {
+            'status': 'error',
+            'message': str(e),
+            'data': None
+        }
+        return jsonify(error_response)
 
+@app.route('/getinfo', methods=['GET', 'POST'])
+def get_info():
+    try:
+        response_data = {
+                'status': 'success',
+                'message': 'Данные успешно загружены'
+            }
+        return jsonify(response_data)
+    except Exception as e:
+        error_response = {
+            'status': 'error',
+            'message': str(e),
+            'data': None
+        }
+        return jsonify(error_response)
+    
 def send_data_to_server(data):
     server_url = 'http://127.0.0.1:5000/create_loan_case'
 
