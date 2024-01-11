@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка на кредит</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* голубой цвет фона */
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        a.button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Убираем подчеркивание ссылки */
+        }
+
+        a.button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+  <form method="post" action="/createcase">
+        <label for="creditProgram">Кредитная программа:</label>
+        <select id="creditProgram" name="creditProgram">
+            <option value="program1">Программа 1</option>
+            <option value="program2">Программа 2</option>
+            <!-- Добавьте нужные кредитные программы -->
+        </select>
+
+        <label for="loanAmount">Сумма кредита:</label>
+        <input type="text" id="loanAmount" name="loanAmount">
+
+        <label for="loanPeriod">Период кредитования:</label>
+        <input type="text" id="loanPeriod" name="loanPeriod">
+
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" name="lastName">
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="firstName">
+
+        <label for="middleName">Отчество:</label>
+        <input type="text" id="middleName" name="middleName">
+
+        <label for="dob">Дата рождения:</label>
+        <input type="date" id="dob" name="dob">
+
+        <label for="passport">Паспортные данные:</label>
+        <input type="text" id="passportSeries" name="passportSeries" placeholder="Серия">
+        <input type="text" id="passportNumber" name="passportNumber" placeholder="Номер">
+        <input type="date" id="passportIssueDate" name="passportIssueDate" placeholder="Дата выдачи">
+        <input type="text" id="passportIssuedBy" name="passportIssuedBy" placeholder="Кем выдан">
+
+        <label for="snils">СНИЛС:</label>
+        <input type="text" id="snils" name="snils">
+
+        <label for="education">Образование:</label>
+        <input type="text" id="education" name="education">
+
+        <label for="registrationAddress">Адрес прописки:</label>
+        <input type="text" id="registrationAddress" name="registrationAddress">
+
+        <label for="residentialAddress">Адрес проживания:</label>
+        <input type="text" id="residentialAddress" name="residentialAddress">
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="agreement">Согласие на обработку данных:</label>
+        <input type="checkbox" id="agreement" name="agreement" required>
+        <label for="agreement">Я согласен(а) с условиями обработки данных</label>
+
+        <button type="submit" class="button">Отправить заявку</button>
+    </form>
+
+</body>
+</html>
